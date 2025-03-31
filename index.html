@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministry Sticker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .menu-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #121230;
+            position: fixed;
+            left: -260px;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+            box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 5px;
+            transition: 0.3s;
+            width: 90%;
+            text-align: center;
+        }
+        .sidebar a:hover {
+            background-color: #0072ff;
+        }
+        .content {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 30px 0;
+            color: #0072ff;
+        }
+        .section {
+            margin: 50px 0;
+            padding: 20px 0;
+        }
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0072ff;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #121230;
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        .gallery img {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease;
+            background-color: white;
+        }
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+        .contact-btn {
+            background-color: #0072ff;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        .contact-btn:hover {
+            background-color: #005bb5;
+            transform: translateY(-2px);
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            width: 100%;
+            background-color: #121230;
+            text-align: center;
+        }
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0072ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .copy-notification.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .gallery img {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-btn" onclick="toggleMenu()">⋮</button>
+    <div class="sidebar" id="sidebar">
+        <a href="#theatre">Theatre</a>
+        <a href="#choir">Choir</a>
+        <a href="#production">Production</a>
+        <a href="#guest-coordination">Guest Coordination</a>
+    </div>
+    <div class="content">
+        <h1>Ministry Sticker</h1>
+        
+        <!-- Theatre Section -->
+        <div class="section" id="theatre">
+            <h2>Theatre</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/TF6FyWG/Theatro-Kristiano-1.png" alt="Theatro Kristiano 1">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/TF6FyWG/Theatro-Kristiano-1.png')">Get This Design</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/05KWSmN/Theatro-Kristiano-2.png" alt="Theatro Kristiano 2">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/05KWSmN/Theatro-Kristiano-2.png')">Get This Design</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/S4VHmqzL/Theatro-Kristiano-3.png" alt="Theatro Kristiano 3">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/S4VHmqzL/Theatro-Kristiano-3.png')">Get This Design</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Choir Section -->
+        <div class="section" id="choir">
+            <h2>Choir</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/k2ZWWk7M/Choir-1.png" alt="Choir 1">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/k2ZWWk7M/Choir-1.png')">Get This Design</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/BHNHGnKp/Choir-2.png" alt="Choir 2">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/BHNHGnKp/Choir-2.png')">Get This Design</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/KjV49T00/Choir-3.png" alt="Choir 3">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/KjV49T00/Choir-3.png')">Get This Design</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/F41VdgFv/Choir-4.png" alt="Choir 4">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/F41VdgFv/Choir-4.png')">Get This Design</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Production Section -->
+        <div class="section" id="production">
+            <h2>Production</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/TDWr4xgB/Production-1.jpg" alt="Production 1">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/TDWr4xgB/Production-1.jpg')">Get This Design</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/0VmDxNcV/Production-2.jpg" alt="Production 2">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/0VmDxNcV/Production-2.jpg')">Get This Design</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Guest Coordination Section -->
+        <div class="section" id="guest-coordination">
+            <h2>Guest Coordination</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/27mJcWWW/Guest-Coordinator-1.png" alt="Guest Coordinator 1">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/27mJcWWW/Guest-Coordinator-1.png')">Get This Design</button>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/FqVq7b1G/Guest-Coordinator-2.png" alt="Guest Coordinator 2">
+                    <button class="contact-btn" onclick="contactDesigner('https://i.ibb.co/FqVq7b1G/Guest-Coordinator-2.png')">Get This Design</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Ministry Sticker. All rights reserved.</p>
+    </footer>
+    
+    <div class="copy-notification" id="copyNotification">Image link copied!</div>
+    
+    <script>
+        // Toggle sidebar menu
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        // Close sidebar when clicking on a link
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('sidebar').classList.remove('active');
+            });
+        });
+        
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuBtn = document.querySelector('.menu-btn');
+            
+            if (!sidebar.contains(event.target) && event.target !== menuBtn) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Main function to handle design requests
+        function contactDesigner(imageUrl) {
+            // Create a temporary textarea to copy the URL
+            const textarea = document.createElement('textarea');
+            textarea.value = imageUrl;
+            textarea.style.position = 'fixed';  // Prevent scrolling to bottom
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                // Execute the copy command
+                const successful = document.execCommand('copy');
+                const notification = document.getElementById('copyNotification');
+                
+                if (successful) {
+                    // Show success notification
+                    notification.textContent = 'Image link copied!';
+                    notification.classList.add('show');
+                    
+                    // Open Messenger after a short delay
+                    setTimeout(() => {
+                        window.open('https://m.me/100075039013420?hash=Abb6qPs3E9il1_E4&source=qr_link_share', '_blank');
+                    }, 300);
+                } else {
+                    // Fallback if execCommand fails
+                    notification.textContent = 'Press Ctrl+C to copy';
+                    notification.classList.add('show');
+                    window.open('https://m.me/100075039013420?hash=Abb6qPs3E9il1_E4&source=qr_link_share', '_blank');
+                }
+                
+                // Hide notification after 2 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                // If everything fails, just open Messenger
+                window.open('https://m.me/100075039013420?hash=Abb6qPs3E9il1_E4&source=qr_link_share', '_blank');
+            } finally {
+                // Clean up
+                document.body.removeChild(textarea);
+            }
+        }
+    </script>
+</body>
+</html>
